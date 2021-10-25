@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon -x ts-node src/Server.ts",
     "start": "ts-node src/Server.ts",
-    "build": "tsc -p ."
+    "build": "tsc -p .",
+    "test": "ts-node src/Server.ts"
   },
   "author": "",
   "license": "ISC",
