@@ -7,7 +7,7 @@
     "dev": "nodemon -x ts-node src/Server.ts",
     "start": "ts-node src/Server.ts",
     "build": "tsc -p .",
-    "test": "ts-node src/Server.ts"
+    "test": "mocha 'test/**/*.ts' --recursive --timeout 60000 --exit"
   },
   "author": "",
   "license": "ISC",
