@@ -1,5 +1,8 @@
 # [🔥 UPDATE V1] BinanceDriver
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=xBidi_BinanceDriver&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=xBidi_BinanceDriver)
+[![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=shield)](https://circleci.com/gh/xBidi/BinanceDriver)
+
 Aplicación que permite interactuar con la API de Binance de una forma más sencilla
 
 ## 💡 Cómo utilizar la aplicación
