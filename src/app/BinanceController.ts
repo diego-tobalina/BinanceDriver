@@ -27,8 +27,8 @@ class EntityController {
 
             const pair = req.body['asset'].toUpperCase();
             const order = req.body['order'].toUpperCase();
-            const strategy = req.body['strategy'].toUpperCase();
-            const tradePercent = req.body['tradePercent'].toUpperCase();
+            const strategy = req.body['strategy'];
+            const tradePercent = req.body['tradePercent'];
 
             const date = new Date();
             const options = {
