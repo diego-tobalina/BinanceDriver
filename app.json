@@ -1,0 +1,40 @@
+{
+  "name": "BinanceDriver",
+  "description": "App que expone la api de binance de una forma sencilla",
+  "keywords": [
+    "nodejs"
+  ],
+  "website": "",
+  "repository": "https://github.com/xBidi/BinanceDriver",
+  "logo": "",
+  "success_url": "",
+  "scripts": {},
+  "env": {},
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "image": "heroku/nodejs",
+  "addons": [
+    {
+      "plan": "librato:development",
+      "as": "LIBRATO"
+    },
+    {
+      "plan": "papertrail:choklad",
+      "as": "PAPERTRAIL"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+    }
+  ],
+  "environments": {
+    "dev": {},
+    "pre": {},
+    "pro": {}
+  }
+}
