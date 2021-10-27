@@ -25,6 +25,8 @@ class EntityController {
     event = async (req: Request, res: Response, next) => {
         try {
 
+            console.log("Client request:",req.body);
+            
             const pair = req.body['asset'].toUpperCase();
             const order = req.body['order'].toUpperCase();
             const strategy = req.body['strategy'];
@@ -42,7 +44,7 @@ class EntityController {
             };
             const spainDate = date.toLocaleDateString('es-ES', options);
 
-            console.log({
+            console.log("Resume:",{
                 time: spainDate,
                 asset: pair,
                 order: order,
