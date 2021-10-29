@@ -1,6 +1,9 @@
 import {Request, Response, Router} from 'express';
 import Controller from "./BinanceController";
 
+
+let queue = []
+let working = false;
 class EntityController {
 
     private request = require('request');
@@ -50,22 +53,39 @@ class EntityController {
                 order: order,
                 strategy
             })
-
-            new Promise(async () => {
-                switch (order) {
-                    case "BUY": {
-                        await this.buyAsset(pair, tradePercent);
-                        break;
-                    }
-                    case "SELL":
-                    case "STOP": {
-                        await this.sellAsset(pair);
-                        break;
-                    }
-                }
+            
+            queue.push({
+                pair,
+                tradePercent,
             })
+            console.log("Added to queue, actually there are: " + queue.length)
             res.json({status: 'ok'})
             next();
+
+            new Promise(async () => {
+                if (working) return;
+                working = true;
+                try {
+                    while (queue.length > 0) {
+                        console.log("Remaining in queue: ", queue.length)
+                        const current = queue.pop();
+                        switch (order) {
+                            case "BUY": {
+                                await this.buyAsset(current.pair, current.tradePercent);
+                                break;
+                            }
+                            case "SELL":
+                            case "STOP": {
+                                await this.sellAsset(current.pair);
+                                break;
+                            }
+                        }
+                    }
+                    console.log("Remaining in queue: ", queue.length)
+                } catch (err) {
+                    console.log("catch error: ", err)
+                }
+            })
         } catch (e) {
             next(e);
         }
